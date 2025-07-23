@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "Cloud REST API",
+    "description": "Collection for testing the cloud-based REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Data Entry",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"age\": 30,\n  \"city\": \"New York\",\n  \"occupation\": \"Software Developer\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/data",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "data"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Data",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/data",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "data"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Data with Pagination",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/data?limit=5&offset=0",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "data"],
+          "query": [
+            {
+              "key": "limit",
+              "value": "5"
+            },
+            {
+              "key": "offset",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Data with Filter",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/data?filter=name,John",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "data"],
+          "query": [
+            {
+              "key": "filter",
+              "value": "name,John"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Data by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/data/{{dataId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "data", "{{dataId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Data by ID",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/data/{{dataId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "data", "{{dataId}}"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
