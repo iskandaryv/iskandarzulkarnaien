@@ -222,11 +222,3 @@ CREATE TABLE user_data (
 3. Make your changes
 4. Add tests for new functionality
 5. Submit a pull request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Built with ❤️ by Iskandar**
